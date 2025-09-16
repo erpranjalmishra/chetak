@@ -14,6 +14,7 @@ ALLOWED_HOSTS = [
     '.azure.com',
     '.azurewebsites.net',
     'chetak-by-teamv.azurewebsites.net',
+    'chetak.teamvimarsh.me',  # Custom domain
     'localhost',
     '127.0.0.1',
     os.environ.get('WEBSITE_HOSTNAME', ''),
@@ -41,12 +42,14 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.azurefd.net',
     'https://*.azurewebsites.net',
     'https://chetak-by-teamv.azurewebsites.net',
+    'https://chetak.teamvimarsh.me',  # Custom domain
 ]
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     'https://teamv-hudvbrdpb0geeacx.z01.azurefd.net',
     'https://chetak-by-teamv.azurewebsites.net',
+    'https://chetak.teamvimarsh.me',  # Custom domain
 ]
 
 CORS_ALLOW_CREDENTIALS = True

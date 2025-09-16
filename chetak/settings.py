@@ -21,6 +21,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'teamv-hudvbrdpb0geeacx.z01.azurefd.net',  # Azure Front Door endpoint
+    'chetak.teamvimarsh.me',  # Custom domain
     '.azurefd.net',  # Allow all Azure Front Door domains
     '.azure.com',   # Azure domains
 ]
