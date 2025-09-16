@@ -118,13 +118,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Static files settings for collectstatic
+# Static files configuration for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Additional locations of static files
-STATICFILES_DIRS = [
-    BASE_DIR / 'Mainapp' / 'static',
-]
+# Only include if directory exists
+import os
+if os.path.exists(BASE_DIR / 'Mainapp' / 'static'):
+    STATICFILES_DIRS = [
+        BASE_DIR / 'Mainapp' / 'static',
+    ]
+else:
+    STATICFILES_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
