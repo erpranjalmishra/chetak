@@ -16,7 +16,14 @@ SECRET_KEY = 'django-insecure-6%366&lwt3q&l7qnov(hf2xs&5i1=ub+6$+cuwrw$(s3+g_nlh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Azure Front Door configuration
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'teamv-hudvbrdpb0geeacx.z01.azurefd.net',  # Azure Front Door endpoint
+    '.azurefd.net',  # Allow all Azure Front Door domains
+    '.azure.com',   # Azure domains
+]
 
 
 # Application definition
@@ -28,11 +35,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',  # For CORS handling with Azure Front Door
     'Mainapp',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Should be first
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,3 +130,25 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Azure Front Door and Security Configuration
+# CSRF trusted origins for Azure Front Door
+CSRF_TRUSTED_ORIGINS = [
+    'https://teamv-hudvbrdpb0geeacx.z01.azurefd.net',
+    'https://*.azurefd.net',
+]
+
+# Security headers for production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False  # Set to True in production
+USE_TZ = True
+
+# CORS settings for Azure Front Door
+CORS_ALLOWED_ORIGINS = [
+    'https://teamv-hudvbrdpb0geeacx.z01.azurefd.net',
+]
+
+# Azure Front Door specific headers
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
