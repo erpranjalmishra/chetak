@@ -1,0 +1,9 @@
+# Azure App Service startup command
+# This file should be referenced in Azure App Service configuration
+
+# For Linux App Service, use this command:
+gunicorn --bind 0.0.0.0:8000 --workers 2 --timeout 600 chetak.wsgi:application
+
+# Alternative startup commands:
+# python manage.py runserver 0.0.0.0:8000
+# uvicorn chetak.asgi:application --host 0.0.0.0 --port 8000

@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+
+# Virtual environments
+myenv/
+venv/
+env/
+antenv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+db.sqlite3
+*.db
+
+# Static files (will be collected during build)
+staticfiles/
+
+# Documentation
+*.md
+azure-*.md
+
+# Local development files
+.env
+.env.local
