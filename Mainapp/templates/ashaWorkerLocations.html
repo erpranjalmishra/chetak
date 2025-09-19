@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASHA Worker City Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #1d4e89;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    #map {
+      flex: 1;
+      width: 100%;
+    }
+    #panel {
+      background: #f9fafb;
+      border-top: 1px solid #ddd;
+      padding: 1rem;
+      height: 200px;
+      overflow-y: auto;
+    }
+    .worker-card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .worker-card strong { color: #1d4e89; }
+  </style>
+</head>
+<body>
+  <header>ASHA Worker City-Wise Dashboard</header>
+  <div id="map"></div>
+  <div id="panel">
+    <p>Select a city marker to view ASHA worker details.</p>
+  </div>
+
+  <script>
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 27.5, lng: 78.5 },
+        zoom: 6,
+      });
+
+      // Dummy dataset: city-wise ASHA workers
+      const cities = [
+        {
+          name: "Delhi",
+          location: { lat: 28.7041, lng: 77.1025 },
+          workers: [
+            { id: "A101", name: "Sita Devi", phone: "9876543210" },
+            { id: "A102", name: "Geeta Kumari", phone: "9876501234" },
+            { id: "A103", name: "Radha Sharma", phone: "9876512345" },
+          ]
+        },
+        {
+          name: "Lucknow",
+          location: { lat: 26.8467, lng: 80.9462 },
+          workers: [
+            { id: "B201", name: "Meena Yadav", phone: "9123456780" },
+            { id: "B202", name: "Kamla Singh", phone: "9123456791" }
+          ]
+        },
+        {
+          name: "Jaipur",
+          location: { lat: 26.9124, lng: 75.7873 },
+          workers: [
+            { id: "C301", name: "Shanti Devi", phone: "9988776655" }
+          ]
+        },
+        {
+          name: "Patna",
+          location: { lat: 25.5941, lng: 85.1376 },
+          workers: [
+            { id: "D401", name: "Pooja Kumari", phone: "9876001122" },
+            { id: "D402", name: "Nirmala Devi", phone: "9876001133" },
+            { id: "D403", name: "Anita Sharma", phone: "9876001144" }
+          ]
+        }
+      ];
+
+      cities.forEach(city => {
+        // Marker with number of workers
+        const markerLabel = `${city.workers.length}`;
+        const marker = new google.maps.Marker({
+          position: city.location,
+          map,
+          label: {
+            text: markerLabel,
+            color: "white",
+            fontSize: "12px",
+            fontWeight: "bold"
+          },
+          title: `${city.name} (${city.workers.length} Workers)`,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 15,
+            fillColor: "#1d4e89",
+            fillOpacity: 0.9,
+            strokeWeight: 1,
+            strokeColor: "#fff"
+          }
+        });
+
+        // On marker click → show worker list
+        marker.addListener("click", () => {
+          let workersHTML = `<h3>${city.name} - ${city.workers.length} Workers</h3>`;
+          city.workers.forEach(w => {
+            workersHTML += `
+              <div class="worker-card">
+                <strong>${w.name}</strong> (ID: ${w.id})<br>
+                📞 ${w.phone}
+              </div>`;
+          });
+          document.getElementById("panel").innerHTML = workersHTML;
+        });
+      });
+    }
+  </script>
+
+  <!-- Google Maps API -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jTrvJNCf_qLR-mO-wrbgNNktJF5jDTQ&callback=initMap&libraries=marker&loading=async"
+    async
+    defer>
+  </script>
+</body>
+</html>

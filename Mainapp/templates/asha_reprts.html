@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asha Workers Report</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f7f9fc;
+      color: #333;
+    }
+    header {
+      background: #17406d;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin: 10px 0;
+      color: #17406d;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background: #17406d;
+      color: white;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <header>ASHA Workers Report - National Dashboard</header>
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <h3>Total ASHA Workers</h3>
+        <p><b>290</b></p>
+      </div>
+      <div class="card">
+        <h3>High Population Areas</h3>
+        <p><b>2 Cities</b></p>
+      </div>
+      <div class="card">
+        <h3>Moderate Population Areas</h3>
+        <p><b>1 City</b></p>
+      </div>
+      <div class="card">
+        <h3>Low Population Areas</h3>
+        <p><b>2 Cities</b></p>
+      </div>
+    </div>
+
+    <h2>City-wise Distribution</h2>
+    <table>
+      <tr>
+        <th>City</th>
+        <th>Population Category</th>
+        <th>ASHA Workers Assigned</th>
+        <th>Remarks</th>
+      </tr>
+      <tr>
+        <td>Delhi</td>
+        <td>High</td>
+        <td>3
+        </td>
+        <td>Metropolitan hub, higher demand</td>
+      </tr>
+    
+      <tr>
+        <td>Lucknow</td>
+        <td>Moderate</td>
+        <td>2</td>
+        <td>Balanced distribution</td>
+      </tr>
+      <tr>
+        <td>Jaipur</td>
+        <td>Low</td>
+        <td>1</td>
+        <td>Smaller coverage required</td>
+      </tr>
+      <tr>
+        <td>Patna</td>
+        <td>Low</td>
+        <td>3</td>
+        <td>Minimal demand</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

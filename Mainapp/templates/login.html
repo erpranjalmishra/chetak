@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - The Chetak Portal | Government of India</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <!-- Government Top Bar - Simplified -->
+    <div class="gov-top-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center gap-3 small">
+                        <a href="https://www.india.gov.in" target="_blank" class="text-decoration-none">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/24px-Flag_of_India.svg.png"
+                                alt="India" class="me-1" width="20">
+                            India Portal
+                        </a>
+                        <span class="text-muted">|</span>
+                        <select id="languageSelect" class="form-select form-select-sm"
+                            onchange="changeLanguage(this.value)" style="width: auto;">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="d-flex align-items-center justify-content-end gap-3 small">
+                        <span class="text-muted">Last Updated: 15 Sep 2025</span>
+                        <span class="mx-2">|</span>
+                        <a href="{% url 'home' %}" class="text-decoration-none">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Government Header -->
+    <header class="gov-header" style="background: #1f2937 !important; color: #ffffff !important;">
+        <div class="container-fluid">
+            <div class="row align-items-center py-3">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                            alt="Government of India" class="gov-emblem me-4" width="60">
+                        <div style="color: #ffffff !important;">
+                            <h4 class="mb-1 fw-bold" data-translate="Government of India"
+                                style="color: #ffffff !important;">Government of India</h4>
+                            <h6 class="mb-1" style="color: rgba(255,255,255,0.85) !important;">Ministry of Health &
+                                Family Welfare</h6>
+                            <small style="color: rgba(255,255,255,0.75) !important;">स्वास्थ्य और परिवार कल्याण
+                                मंत्रालय</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="d-flex flex-column align-items-end gap-2">
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'register' %}" class="btn btn-warning btn-sm"
+                                style="background: #f59e0b !important; color: #000000 !important; border: 2px solid #f59e0b !important; font-weight: bold !important;">
+                                <i class="fas fa-user-plus"></i> <span data-translate="Register">Register</span>
+                            </a>
+                        </div>
+                        <div class="small" style="color: rgba(255,255,255,0.75) !important;">
+                            <i class="fas fa-phone me-1"></i>Helpline: <strong>1075</strong>
+                            <span class="mx-2">|</span>
+                            <i class="fas fa-ambulance me-1"></i>Emergency: <strong>108</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand fw-bold text-primary" href="/">
+                    <i class="fas fa-heartbeat me-2 text-danger"></i>
+                    <span data-translate="The Chetak">The Chetak</span>
+                </a>
+                <span class="badge bg-success ms-2 small">Health Portal</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 small">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Login Form -->
+    <section class="hero-section py-5">
+
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-5 hero-content">
+                    <div class="text-center text-lg-start mb-4">
+                        <h1 class="display-4 fw-bold text-primary mb-3">
+                            <i class="fas fa-sign-in-alt me-3 text-success"></i>Login
+                        </h1>
+                        <p class="lead text-muted mb-4">
+                            Access your healthcare dashboard and connect with India's comprehensive health ecosystem
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                            <div class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                                <i class="fas fa-shield-alt me-1"></i>Secure Access
+                            </div>
+                            <div class="badge bg-success bg-opacity-10 text-success px-3 py-2">
+                                <i class="fas fa-users me-1"></i>Multi-User Portal
+                            </div>
+                            <div class="badge bg-info bg-opacity-10 text-info px-3 py-2">
+                                <i class="fas fa-mobile-alt me-1"></i>Mobile Friendly
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card portal-card border-primary shadow-lg">
+                        <div class="card-header text-white text-center py-4"
+                            style="background: linear-gradient(135deg, var(--gov-primary), var(--gov-secondary)) !important;">
+                            <h3 class="mb-0 fw-bold">
+                                <i class="fas fa-user-circle me-2"></i>Portal Access
+                            </h3>
+                            <p class="mb-0 mt-2 opacity-90">Choose your role and sign in securely</p>
+                        </div>
+                        <div class="card-body p-5">
+                            <!-- User Type Selection -->
+                            <form id="loginForm" method="post" action="{% url 'logipage' %}">
+                                {% csrf_token %}
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-primary mb-3">
+                                        <i class="fas fa-users me-2"></i>Select Your Role
+                                    </label>
+                                    <div class="row g-3">
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType1"
+                                                value="general" checked>
+                                            <label
+                                                class="btn btn-outline-primary w-100 text-center py-3 portal-user-type"
+                                                for="userType1">
+                                                <i class="fas fa-user fa-2x d-block mb-2 text-primary"></i>
+                                                <small class="fw-semibold">General Public</small>
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType2"
+                                                value="asha">
+                                            <label
+                                                class="btn btn-outline-success w-100 text-center py-3 portal-user-type"
+                                                for="userType2">
+                                                <i class="fas fa-user-nurse fa-2x d-block mb-2 text-success"></i>
+                                                <small class="fw-semibold">ASHA Worker</small>
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType3"
+                                                value="doctor">
+                                            <label class="btn btn-outline-info w-100 text-center py-3 portal-user-type"
+                                                for="userType3">
+                                                <i class="fas fa-user-md fa-2x d-block mb-2 text-info"></i>
+                                                <small class="fw-semibold">Healthcare Provider</small>
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType4"
+                                                value="official">
+                                            <label
+                                                class="btn btn-outline-warning w-100 text-center py-3 portal-user-type"
+                                                for="userType4">
+                                                <i class="fas fa-building fa-2x d-block mb-2 text-warning"></i>
+                                                <small class="fw-semibold">Govt. Official</small>
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType5"
+                                                value="admin">
+                                            <label
+                                                class="btn btn-outline-danger w-100 text-center py-3 portal-user-type"
+                                                for="userType5">
+                                                <i class="fas fa-user-shield fa-2x d-block mb-2 text-danger"></i>
+                                                <small class="fw-semibold">Admin</small>
+                                            </label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="userType" id="userType6"
+                                                value="researcher">
+                                            <label
+                                                class="btn btn-outline-secondary w-100 text-center py-3 portal-user-type"
+                                                for="userType6">
+                                                <i class="fas fa-microscope fa-2x d-block mb-2 text-secondary"></i>
+                                                <small class="fw-semibold">Researcher</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Django Error Messages -->
+                                {% if messages %}
+                                <div class="alert-container mb-4">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {% else %}
+                                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+                                            role="alert">
+                                            {% endif %}
+                                            <i class="fas fa-{{ message.tags|default:" info" }} me-2"></i>
+                                            {{ message }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    {% if messages %}
+                                    <div class="alert-container mb-4">
+                                        {% for message in messages %}
+                                        {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            {% else %}
+                                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show"
+                                                role="alert">
+                                                {% endif %}
+                                                <i class="fas fa-{{ message.tags|default:" info" }} me-2"></i>
+                                                {{ message }}
+                                                <button type="button" class="btn-close"
+                                                    data-bs-dismiss="alert"></button>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+
+
+
+
+                                        <!-- Universal Login Fields -->
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label fw-semibold">
+                                                <i class="fas fa-user me-2 text-primary"></i>Username
+                                            </label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                required placeholder="Enter your username">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label fw-semibold">
+                                                <i class="fas fa-lock me-2 text-primary"></i>Password
+                                            </label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                required placeholder="Enter your password">
+                                        </div>
+
+
+
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="rememberMe"
+                                                name="remember_me">
+                                            <label class="form-check-label" for="rememberMe">
+                                                <i class="fas fa-check-circle me-1 text-success"></i>Remember me
+                                            </label>
+                                        </div>
+
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="fas fa-sign-in-alt me-2"></i><span id="loginButtonText">Login
+                                                    to Portal</span>
+                                            </button>
+                                        </div>
+                            </form>
+
+                            <hr class="my-4">
+
+                            <div class="text-center">
+                                <a href="#" class="text-decoration-none me-3">Forgot Password?</a>
+                                <a href="#" class="text-decoration-none">Need Help?</a>
+                            </div>
+
+                            <div class="alert alert-info mt-3 small">
+                                <i class="fas fa-info-circle me-1"></i>
+                                <strong>Security Notice:</strong> This is a secure Government of India portal. Your data
+                                is
+                                protected under IT Act 2000. Never share your login credentials.
+                            </div>
+                        </div>
+
+                        <div class="card-footer bg-light text-center">
+                            <p class="text-muted mb-2 small">Don't have an account?
+                                <a href="{% url 'register' %}" class="text-decoration-none">Register here</a>
+                            </p>
+                            <p class="text-muted mb-0 small">By logging in, you agree to our
+                                <a href="#" target="_blank">Terms of Service</a> and
+                                <a href="#" target="_blank">Privacy Policy</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                            alt="Government of India" width="40" class="me-3 gov-emblem">
+                        <div>
+                            <h6 class="text-primary mb-1">The Chetak</h6>
+                            <small class="text-white">Ministry of Health & Family Welfare</small>
+                        </div>
+                    </div>
+                    <p class="small">An initiative of the Government of India for comprehensive health education,
+                        community support, and digital health services.</p>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-primary mb-3">Contact & Support</h6>
+                    <div class="contact-info small">
+                        <div class="mb-2">
+                            <i class="fas fa-phone text-success me-2"></i>
+                            <strong>Helpline:</strong> <a href="tel:1075" class="text-light">1075</a> (Health)
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope text-info me-2"></i>
+                            <strong>Email:</strong> <a href="mailto:support@chetak.gov.in"
+                                class="text-light">support@chetak.gov.in</a>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-ambulance text-danger me-2"></i>
+                            <strong>Emergency:</strong> <a href="tel:108" class="text-light">108</a> (Ambulance)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small">&copy; 2025 The Chetak Portal, Government of India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

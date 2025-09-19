@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Government Official Panel - ASHA Worker Allocation</title>
+  <style>
+    :root {
+      --primary: #1d4e89;
+      --secondary: #f3f4f6;
+      --accent: #2563eb;
+      --text-dark: #111827;
+      --text-light: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--secondary);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    #container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      width: 220px;
+      background: #ffffff;
+      border-right: 1px solid #e5e7eb;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    #sidebar h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    #sidebar a {
+      display: block;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    #sidebar a:hover {
+      background: var(--secondary);
+      color: var(--accent);
+    }
+
+    /* Main Content */
+    #main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #map {
+      flex: 1.8;
+    }
+
+    #panel {
+      flex: 1;
+      background: white;
+      padding: 1.5rem;
+      border-top: 1px solid #e5e7eb;
+      overflow-y: auto;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #f9fafb;
+    }
+
+    .allocation {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .legend {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .legend div {
+      margin: 0.3rem 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .color-box {
+      width: 18px;
+      height: 18px;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+    }
+
+    input[type="number"] {
+      width: 120px;
+      padding: 6px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+
+    #log {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #eef2f7;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Government Official Dashboard</span>
+    <span>Welcome, Officer</span>
+  </header>
+
+  <div id="container">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <h3>Navigation</h3>
+      <a href="#">Dashboard</a>
+      <a href="/ashaworker/">ASHA Worker Allocation</a>
+      <a href="/reports/">Reports</a>
+      <a href="#">Population Insights</a>
+      <a href="#">Settings</a>
+    </aside>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <div id="map"></div>
+      <div id="panel">
+        <h2>Region Insights</h2>
+        <div id="region-info">
+          <p>Select a region on the map to view details.</p>
+        </div>
+
+        <div class="legend">
+          <h4>Weather Legend</h4>
+          <div><span class="color-box" style="background:red;"></span> Bad Weather</div>
+          <div><span class="color-box" style="background:yellow;"></span> Moderate Weather</div>
+          <div><span class="color-box" style="background:lightyellow; border:1px solid #ccc;"></span> Mild Weather</div>
+        </div>
+
+        <h3 style="margin-top:1rem;">Allocation Log</h3>
+        <div id="log">No allocations yet.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 27.5, lng: 78.5 }, // North India approx
+        zoom: 6,
+        mapId: "YOUR_MAP_ID_HERE" // ✅ Replace with your actual Map ID
+      });
+
+      // Dummy dataset
+      const regions = [
+        { name: "Delhi", location: { lat: 28.7041, lng: 77.1025 }, weather: "bad", population: "high" },
+        { name: "Lucknow", location: { lat: 26.8467, lng: 80.9462 }, weather: "moderate", population: "moderate" },
+        { name: "Jaipur", location: { lat: 26.9124, lng: 75.7873 }, weather: "mild", population: "low" },
+        { name: "Patna", location: { lat: 25.5941, lng: 85.1376 }, weather: "bad", population: "high" },
+      ];
+
+      const weatherColors = {
+        bad: "red",
+        moderate: "yellow",
+        mild: "lightyellow",
+      };
+
+      regions.forEach(region => {
+        // Draw weather circle
+        new google.maps.Circle({
+          strokeColor: weatherColors[region.weather],
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: weatherColors[region.weather],
+          fillOpacity: 0.35,
+          map,
+          center: region.location,
+          radius: 50000,
+        });
+
+        // Advanced marker
+        const marker = new google.maps.marker.AdvancedMarkerElement({
+          map,
+          position: region.location,
+          title: region.name,
+        });
+
+        marker.addListener("click", () => {
+          const allocation = getWorkerAllocation(region.population);
+
+          document.getElementById("region-info").innerHTML = `
+            <div class="card">
+              <h3>${region.name}</h3>
+              <p>Weather Condition: <strong>${region.weather.toUpperCase()}</strong></p>
+              <p>Population Density: <strong>${region.population.toUpperCase()}</strong></p>
+              <p class="allocation">Recommended ASHA Workers: ${allocation}</p>
+              <label>Set Allocation: </label>
+              <input type="number" id="allocInput" value="${allocation.replace(/\D/g,'')}" min="0">
+              <button onclick="setAllocation('${region.name}')">Assign</button>
+            </div>
+          `;
+        });
+      });
+    }
+
+    function getWorkerAllocation(population) {
+      switch(population) {
+        case "low": return "2 Workers";
+        case "moderate": return "5 Workers";
+        case "high": return "10 Workers";
+        default: return "0 Workers";
+      }
+    }
+
+    function setAllocation(regionName) {
+      const value = document.getElementById("allocInput").value;
+      const logBox = document.getElementById("log");
+
+      const logEntry = `✅ Assigned ${value} ASHA workers to ${regionName} (at ${new Date().toLocaleTimeString()})`;
+      logBox.innerHTML = logBox.innerHTML === "No allocations yet." ? logEntry : logBox.innerHTML + "<br>" + logEntry;
+    }
+  </script>
+
+  <!-- ✅ Google Maps API -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1jTrvJNCf_qLR-mO-wrbgNNktJF5jDTQ&callback=initMap&libraries=marker&loading=async"
+    async
+    defer>
+  </script>
+</body>
+</html>

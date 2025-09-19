@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6%366&lwt3q&l7qnov(hf2xs&5i1=ub+6$+cuwrw$(s3+g_nlh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Azure Front Door configuration
 ALLOWED_HOSTS = [
@@ -136,6 +136,13 @@ else:
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom User Model
+
+
+# Media files (for profile pictures)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Azure Front Door and Security Configuration
 # CSRF trusted origins for Azure Front Door

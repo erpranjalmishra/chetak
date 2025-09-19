@@ -1,0 +1,2433 @@
+/* Government Portal Theme CSS - Professional & Clean */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Official Government Colors */
+    --gov-primary: #1f2937;        /* Dark Blue-Gray */
+    --gov-secondary: #3b82f6;      /* Professional Blue */
+    --gov-accent: #059669;         /* Government Green */
+    --gov-orange: #ea580c;         /* Saffron */
+    --gov-white: #ffffff;
+    --gov-light: #f8fafc;
+    --gov-gray-50: #f9fafb;
+    --gov-gray-100: #f3f4f6;
+    --gov-gray-200: #e5e7eb;
+    --gov-gray-300: #d1d5db;
+    --gov-gray-600: #4b5563;
+    --gov-gray-700: #374151;
+    --gov-gray-800: #1f2937;
+    --gov-gray-900: #111827;
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family-hindi: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    
+    /* Spacing */
+    --header-height: 80px;
+    --section-padding: 3rem;
+}
+
+/* Body and General Styles */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--gov-gray-700);
+    background-color: var(--gov-white);
+    font-weight: 400;
+}
+
+body.hindi-font {
+    font-family: var(--font-family-hindi);
+}
+
+/* Remove excessive animations and effects */
+* {
+    transition: none;
+}
+
+/* Keep only essential transitions */
+.btn, .nav-link, .card {
+    transition: all 0.2s ease;
+}
+
+/* Clean typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--gov-gray-800);
+    line-height: 1.3;
+}
+
+.display-4 {
+    font-weight: 700;
+    color: var(--gov-primary);
+}
+
+/* Government Top Bar - Clean & Professional */
+.gov-top-bar {
+    background: var(--gov-gray-50);
+    border-bottom: 1px solid var(--gov-gray-200);
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+}
+
+.gov-top-bar select {
+    background: transparent;
+    border: 1px solid var(--gov-gray-300);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gov-gray-700);
+}
+
+.gov-top-bar .btn-link {
+    color: var(--gov-gray-600) !important;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.gov-top-bar .btn-link:hover {
+    color: var(--gov-secondary) !important;
+}
+
+/* Government Header - Professional */
+.gov-header {
+    background: linear-gradient(135deg, #1f2937 0%, #1f2937 100%) !important;
+    padding: 1.5rem 0;
+    position: relative;
+    color: #ffffff !important;
+}
+
+.gov-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ea580c 33.33%, #ffffff 33.33%, #ffffff 66.66%, #059669 66.66%);
+}
+
+.gov-header h4,
+.gov-header h6,
+.gov-header small,
+.gov-header div,
+.gov-header * {
+    color: #ffffff !important;
+}
+
+.gov-header .text-white {
+    color: #ffffff !important;
+}
+
+.gov-header .text-light {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.gov-emblem {
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease;
+}
+
+.gov-emblem:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation - Clean & Professional */
+.navbar {
+    background: var(--gov-white) !important;
+    border-bottom: 1px solid var(--gov-gray-200);
+    padding: 1rem 0;
+    box-shadow: none;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gov-primary) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.75rem 1.25rem !important;
+    color: var(--gov-gray-600) !important;
+    border-radius: 6px;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gov-secondary) !important;
+    background-color: var(--gov-gray-50);
+}
+
+/* Government Top Bar - Clean & Professional */
+.gov-top-bar {
+    background: var(--gov-gray-50);
+    border-bottom: 1px solid var(--gov-gray-200);
+    font-size: 0.875rem;
+    padding: 0.5rem 0;
+}
+
+.gov-top-bar select {
+    background: transparent;
+    border: 1px solid var(--gov-gray-300);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gov-gray-700);
+}
+
+.gov-top-bar .btn-link {
+    color: var(--gov-gray-600) !important;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.gov-top-bar .btn-link:hover {
+    color: var(--gov-secondary) !important;
+}
+
+/* Government Header Enhanced */
+.gov-header {
+    background: linear-gradient(135deg, var(--government-saffron), var(--government-green), var(--government-blue));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.gov-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--government-saffron) 33.33%, var(--government-white) 33.33%, var(--government-white) 66.66%, var(--government-green) 66.66%);
+}
+
+.gov-emblem {
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+/* Navigation - Clean & Professional */
+.navbar {
+    background: var(--gov-white) !important;
+    border-bottom: 1px solid var(--gov-gray-200);
+    padding: 1rem 0;
+    box-shadow: none;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gov-primary) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.75rem 1.25rem !important;
+    color: var(--gov-gray-600) !important;
+    border-radius: 6px;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gov-secondary) !important;
+    background-color: var(--gov-gray-50);
+}
+
+/* Government Compliance Bar */
+.compliance-bar {
+    background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.compliance-item {
+    padding: 0.25rem 0.5rem;
+    background: rgba(46, 125, 50, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.compliance-item:hover {
+    background: rgba(46, 125, 50, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Footer Enhanced */
+footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%) !important;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--government-saffron) 33.33%, var(--government-white) 33.33%, var(--government-white) 66.66%, var(--government-green) 66.66%);
+}
+
+.contact-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Modal Enhancements for Government Style */
+.modal-content {
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    border-top: 4px solid var(--primary-color);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    position: relative;
+}
+
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--government-saffron), var(--government-green), var(--government-blue));
+}
+
+.modal-footer {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Government Badges and Certifications */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0.75rem;
+}
+
+.badge.bg-success {
+    background: linear-gradient(45deg, var(--success-color), #2e7d32) !important;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(45deg, var(--warning-color), #f57c00) !important;
+}
+
+/* Alert Enhancements for Government */
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(33, 150, 243, 0.05));
+    color: #1976d2;
+    border-left: 4px solid #2196f3;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05));
+    color: #f57c00;
+    border-left: 4px solid #ff9800;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    color: #2e7d32;
+    border-left: 4px solid #4caf50;
+}
+
+/* Government Portal Cards */
+.portal-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border-top: 4px solid transparent;
+}
+
+.portal-card.border-primary {
+    border-top-color: var(--primary-color) !important;
+}
+
+.portal-card.border-success {
+    border-top-color: var(--success-color) !important;
+}
+
+.portal-card.border-info {
+    border-top-color: var(--accent-color) !important;
+}
+
+.portal-card.border-warning {
+    border-top-color: var(--warning-color) !important;
+}
+
+.portal-card.border-danger {
+    border-top-color: var(--danger-color) !important;
+}
+
+.portal-card.border-secondary {
+    border-top-color: #6c757d !important;
+}
+
+.portal-card .card-header {
+    position: relative;
+    padding: 1.5rem;
+}
+
+.portal-card .card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Government Navigation */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa) !important;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Statistics Cards for Government */
+.stat-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-left-color: var(--accent-color);
+}
+
+/* Government Links Styling */
+a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+/* Government Emblem Animation */
+@keyframes govEmblemGlow {
+    0%, 100% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,0.5));
+    }
+    50% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.8));
+    }
+}
+
+.gov-emblem {
+    animation: govEmblemGlow 3s ease-in-out infinite;
+}
+
+/* Government Portal Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #333;
+}
+
+.display-4 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Government Form Styling */
+.form-control, .form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #ffffff, #fafafa);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+    background: #ffffff;
+}
+
+/* Government Button Styling */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #1b5e20);
+    border: none;
+    box-shadow: 0 2px 4px rgba(46, 125, 50, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1b5e20, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.4);
+}
+
+/* Accessibility Improvements for Government Standards */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .gov-header {
+        background: #000080 !important;
+    }
+    
+    .card, .modal-content {
+        border: 3px solid #000;
+    }
+    
+    .btn {
+        border: 2px solid #000;
+    }
+    
+    .text-muted {
+        color: #333 !important;
+    }
+}
+
+/* Print Styles for Government Documents */
+@media print {
+    .gov-header, .navbar, footer, .modal {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+    }
+    
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.75rem 1rem !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    min-height: 80vh;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%234caf50" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.display-4 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+/* Alert Banner */
+.alert-banner {
+    border-bottom: 3px solid var(--warning-color);
+    animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scheme Cards */
+.scheme-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+}
+
+.scheme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.scheme-icon {
+    padding: 1rem;
+    background: rgba(46, 125, 50, 0.1);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Government Color Accents */
+.text-government-orange {
+    color: var(--government-orange) !important;
+}
+
+.text-government-green {
+    color: var(--government-green) !important;
+}
+
+.text-government-blue {
+    color: var(--government-blue) !important;
+}
+
+.bg-government-orange {
+    background-color: var(--government-orange) !important;
+}
+
+.bg-government-green {
+    background-color: var(--government-green) !important;
+}
+
+.bg-government-blue {
+    background-color: var(--government-blue) !important;
+}
+
+/* Feature Icons */
+.feature-icon {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feature-icon i {
+    color: white !important;
+}
+
+/* Card Enhancements */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    border-bottom: none;
+    font-weight: 600;
+}
+
+/* Alert Styles */
+.alert-sm {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Modal Enhancements */
+.modal-content {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+/* Form Enhancements */
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c) !important;
+}
+
+footer a {
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+.social-links a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+        min-height: 60vh;
+    }
+    
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        padding: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Accessibility */
+.btn:focus,
+.form-control:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Government Badge */
+.gov-badge {
+    background: linear-gradient(45deg, var(--government-orange), var(--government-green));
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Health Icon Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.fa-heart-pulse,
+.fa-shield-heart {
+    animation: pulse 2s infinite;
+}
+
+/* Gradient Text - Cross Browser Compatible */
+.gradient-text {
+    background: linear-gradient(45deg, var(--government-orange), var(--government-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Edge/IE Fallback for gradient text */
+@supports not (-webkit-background-clip: text) {
+    .gradient-text {
+        color: var(--government-orange);
+        background: none;
+    }
+}
+
+/* User Type Selection Buttons */
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-info {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-check:checked + .btn-outline-dark {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+
+/* User Type Cards in Hero Section */
+.user-type-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.user-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-color: var(--primary-color) !important;
+}
+
+/* Portal Cards */
+.portal-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.portal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.portal-card .card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border: none;
+}
+
+.portal-card.border-primary .card-header {
+    background: linear-gradient(135deg, var(--primary-color), #1565c0);
+}
+
+.portal-card.border-success .card-header {
+    background: linear-gradient(135deg, var(--success-color), #2e7d32);
+}
+
+.portal-card.border-info .card-header {
+    background: linear-gradient(135deg, var(--accent-color), #1565c0);
+}
+
+.portal-card.border-warning .card-header {
+    background: linear-gradient(135deg, var(--warning-color), #f57c00);
+    color: white !important;
+}
+
+.portal-card.border-danger .card-header {
+    background: linear-gradient(135deg, var(--danger-color), #c62828);
+}
+
+.portal-card.border-secondary .card-header {
+    background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+/* Statistics Cards */
+.stat-card {
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Quick Access Buttons */
+.quick-access-buttons .btn {
+    border-radius: 20px;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.quick-access-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Login Section Visibility */
+.login-section {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.reg-section {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Enhancements for Multi-User */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+/* Alert Enhancements */
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+.alert-info {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #1976d2;
+    border-left: 4px solid #2196f3;
+}
+
+.alert-warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #f57c00;
+    border-left: 4px solid #ff9800;
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #2e7d32;
+    border-left: 4px solid #4caf50;
+}
+
+/* Modal Enhancements */
+.modal-xl {
+    max-width: 95%;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.modal-header.bg-success {
+    background: linear-gradient(135deg, var(--success-color), #2e7d32) !important;
+}
+
+.modal-header.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color), #1565c0) !important;
+}
+
+/* User Type Selection Grid */
+.user-types-grid {
+    padding: 2rem;
+}
+
+/* Responsive Design for User Types */
+@media (max-width: 768px) {
+    .user-type-card {
+        margin-bottom: 1rem;
+    }
+    
+    .portal-card {
+        margin-bottom: 2rem;
+    }
+    
+    .quick-access-buttons .btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-xl {
+        max-width: 98%;
+        margin: 1rem auto;
+    }
+}
+
+/* Custom Notification Styles */
+.custom-notification {
+    border-radius: 10px;
+    border: none;
+    font-weight: 500;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* User Type Badge Styles */
+.user-type-badge {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
+}
+
+/* Loading States */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Form Validation Styles */
+.is-valid {
+    border-color: var(--success-color) !important;
+}
+
+.is-invalid {
+    border-color: var(--danger-color) !important;
+}
+
+.valid-feedback {
+    color: var(--success-color);
+}
+
+.invalid-feedback {
+    color: var(--danger-color);
+}
+
+/* Multi-select Enhancement */
+select[multiple] {
+    min-height: 120px;
+}
+
+/* Accessibility Improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus Indicators */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .card {
+        border: 2px solid #000;
+    }
+    
+    .btn {
+        border-width: 2px;
+    }
+    
+    .text-muted {
+        color: #333 !important;
+    }
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background: #0f5132;
+    color: white;
+    font-size: 0.9rem;
+    padding: 8px 0;
+}
+
+.top-bar select {
+    background: #198754;
+    color: white;
+    border: 1px solid #20c997;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.85rem;
+}
+
+.top-bar select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.top-bar .btn {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    margin: 0 2px;
+}
+
+.top-bar .accessibility-btn {
+    background: #ffc107;
+    color: #000;
+    border: none;
+}
+
+.top-bar .accessibility-btn:hover {
+    background: #ffcd39;
+    color: #000;
+}
+
+/* Rating Stars */
+.rating-stars {
+    display: flex;
+    gap: 5px;
+    font-size: 1.2rem;
+}
+
+.rating-stars i {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars i:hover,
+.rating-stars i.active {
+    color: #ffc107;
+}
+
+/* Accessibility Panel */
+.accessibility-panel {
+    position: fixed;
+    top: 50%;
+    right: -350px;
+    transform: translateY(-50%);
+    width: 300px;
+    z-index: 1060;
+    transition: right 0.3s ease;
+}
+
+.accessibility-panel.show {
+    right: 20px;
+}
+
+.accessibility-panel .card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.accessibility-panel .btn-group .btn {
+    font-size: 0.8rem;
+}
+
+/* Font Size Classes */
+body.font-small {
+    font-size: 0.85rem;
+}
+
+body.font-large {
+    font-size: 1.15rem;
+}
+
+body.font-large h1 { font-size: 2.8rem; }
+body.font-large h2 { font-size: 2.3rem; }
+body.font-large h3 { font-size: 1.8rem; }
+body.font-large h4 { font-size: 1.5rem; }
+body.font-large h5 { font-size: 1.3rem; }
+body.font-large h6 { font-size: 1.1rem; }
+
+body.font-small h1 { font-size: 2.2rem; }
+body.font-small h2 { font-size: 1.8rem; }
+body.font-small h3 { font-size: 1.5rem; }
+body.font-small h4 { font-size: 1.2rem; }
+body.font-small h5 { font-size: 1rem; }
+body.font-small h6 { font-size: 0.9rem; }
+
+/* High Contrast Mode */
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast .card {
+    background: #1a1a1a !important;
+    color: #fff !important;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .btn-primary {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .btn-outline-primary {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .navbar-brand,
+body.high-contrast .nav-link {
+    color: #fff !important;
+}
+
+body.high-contrast .bg-light {
+    background: #2a2a2a !important;
+}
+
+/* Keyboard Navigation Enhancement */
+body.keyboard-nav *:focus {
+    outline: 3px solid #ffc107 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.3);
+}
+
+/* Contact Card Styling */
+.contact-card {
+    border-left: 4px solid #0d6efd;
+}
+
+.contact-card p {
+    margin-bottom: 0.5rem;
+}
+
+/* Modal Enhancements */
+.modal-header.bg-info {
+    background-color: #0dcaf0 !important;
+}
+
+.modal-header.bg-success {
+    background-color: #198754 !important;
+}
+
+/* FAQ Accordion */
+.accordion-button:not(.collapsed) {
+    background-color: #e7f3ff;
+    color: #0d6efd;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .top-bar {
+        font-size: 0.8rem;
+    }
+    
+    .top-bar .btn {
+        font-size: 0.7rem;
+        padding: 1px 6px;
+    }
+    
+    .accessibility-panel {
+        width: 280px;
+        right: -300px;
+    }
+    
+    .accessibility-panel.show {
+        right: 10px;
+    }
+}
+
+/* Hindi Font Support */
+body.hindi-font {
+    font-family: 'Noto Sans Devanagari', 'Arial Unicode MS', sans-serif;
+}
+
+body.hindi-font h1,
+body.hindi-font h2,
+body.hindi-font h3,
+body.hindi-font h4,
+body.hindi-font h5,
+body.hindi-font h6 {
+    font-family: 'Noto Sans Devanagari', 'Arial Unicode MS', sans-serif;
+    font-weight: 600;
+}
+
+/* Language Selector Enhancement */
+.top-bar select {
+    font-family: inherit;
+    text-align: center;
+}
+
+.language-select {
+    width: auto !important;
+}
+
+/* Header Text Styling */
+.header-text {
+    color: #ffffff !important;
+}
+
+.header-text h4 {
+    color: #ffffff !important;
+}
+
+.header-subtitle {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.header-hindi {
+    color: rgba(255,255,255,0.75) !important;
+}
+
+.header-login-btn {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.header-register-btn {
+    background: #f59e0b !important;
+    color: #000000 !important;
+    border: 2px solid #f59e0b !important;
+    font-weight: bold !important;
+}
+
+.header-contact {
+    color: rgba(255,255,255,0.75) !important;
+}
+
+/* Accessibility close button */
+.accessibility-close {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.accessibility-close:hover {
+    background-color: #ffffff !important;
+    color: #0dcaf0 !important;
+    border-color: #ffffff !important;
+}
+
+/* Skip Link for Accessibility */
+#skipToMain:focus {
+    position: absolute !important;
+    top: 6px !important;
+    left: 6px;
+    z-index: 10000;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Enhanced Focus Indicators */
+body.keyboard-nav button:focus,
+body.keyboard-nav a:focus,
+body.keyboard-nav input:focus,
+body.keyboard-nav select:focus,
+body.keyboard-nav textarea:focus {
+    outline: 3px solid #ffc107 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.3);
+}
+
+/* Screen Reader Only Content */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Print Accessibility */
+@media print {
+    .accessibility-panel,
+    .top-bar,
+    #skipToMain {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt !important;
+        color: #000 !important;
+        background: #fff !important;
+    }
+}
+
+/* ===============================================
+   PROFESSIONAL GOVERNMENT STYLING OVERRIDES
+   =============================================== */
+
+/* Hero Section - Clean & Professional */
+.hero-section {
+    background: linear-gradient(135deg, var(--gov-light) 0%, var(--gov-gray-50) 100%);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--gov-gray-200);
+}
+
+.hero-section::before {
+    display: none; /* Remove background pattern */
+}
+
+/* Portal Cards - Clean & Professional */
+.portal-card {
+    border: 1px solid var(--gov-gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--gov-white);
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.portal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--gov-secondary);
+}
+
+.portal-card .card-header {
+    padding: 2rem;
+    border-bottom: none;
+    position: relative;
+}
+
+.portal-card.border-primary .card-header {
+    background: linear-gradient(135deg, var(--gov-secondary), #2563eb) !important;
+}
+
+.portal-card.border-success .card-header {
+    background: linear-gradient(135deg, var(--gov-accent), #047857) !important;
+}
+
+.portal-card.border-info .card-header {
+    background: linear-gradient(135deg, #0891b2, #0284c7) !important;
+}
+
+.portal-card.border-warning .card-header {
+    background: linear-gradient(135deg, var(--gov-orange), #c2410c) !important;
+}
+
+.portal-card .card-body {
+    padding: 2rem;
+}
+
+.portal-card .card-footer {
+    background: var(--gov-gray-50);
+    border-top: 1px solid var(--gov-gray-200);
+    padding: 1.5rem 2rem;
+}
+
+/* Ensure portal card buttons are visible */
+.portal-card .btn,
+.card-footer .btn,
+.user-type-login {
+    display: block !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-color: var(--gov-secondary) !important;
+    color: #ffffff !important;
+    border: 2px solid var(--gov-secondary) !important;
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+    font-weight: 500 !important;
+}
+
+.portal-card .btn-success,
+.card-footer .btn-success {
+    background-color: var(--gov-accent) !important;
+    border-color: var(--gov-accent) !important;
+}
+
+.portal-card .btn-info,
+.card-footer .btn-info {
+    background-color: #0891b2 !important;
+    border-color: #0891b2 !important;
+}
+
+.portal-card .btn-warning,
+.card-footer .btn-warning {
+    background-color: var(--gov-orange) !important;
+    border-color: var(--gov-orange) !important;
+    color: #000000 !important;
+}
+
+.portal-card .btn-danger,
+.card-footer .btn-danger {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+}
+
+.portal-card .btn-secondary,
+.card-footer .btn-secondary {
+    background-color: #6b7280 !important;
+    border-color: #6b7280 !important;
+}
+
+/* Buttons - Professional Government Style with Fixed Visibility */
+.btn {
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.025em;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 2px solid !important;
+}
+
+.btn-primary {
+    background: var(--gov-secondary) !important;
+    border-color: var(--gov-secondary) !important;
+    color: var(--gov-white) !important;
+}
+
+.btn-primary:hover {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: var(--gov-white) !important;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--gov-accent) !important;
+    border-color: var(--gov-accent) !important;
+    color: var(--gov-white) !important;
+}
+
+.btn-success:hover {
+    background: #047857 !important;
+    border-color: #047857 !important;
+    color: var(--gov-white) !important;
+    transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: var(--gov-orange) !important;
+    border-color: var(--gov-orange) !important;
+    color: #000000 !important;
+}
+
+.btn-warning:hover {
+    background: #c2410c !important;
+    border-color: #c2410c !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.btn-outline-light {
+    background: transparent !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Remove excessive card effects */
+.card {
+    border: 1px solid var(--gov-gray-200) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+.card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Footer - Clean Government Style */
+footer {
+    background: var(--gov-gray-800) !important;
+    color: var(--gov-gray-300) !important;
+    padding: 3rem 0 2rem !important;
+}
+
+footer h6 {
+    color: var(--gov-white) !important;
+    font-weight: 600;
+}
+
+footer a {
+    color: var(--gov-gray-300) !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--gov-secondary) !important;
+}
+
+/* Reduce spacing and clutter */
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Clean section spacing */
+section {
+    padding: 3rem 0;
+}
+
+/* Remove excessive animations */
+.fa-heart-pulse,
+.fa-shield-heart {
+    animation: none !important;
+}
+
+/* ===============================================
+   MODAL AND FORM BUTTON FIXES
+   =============================================== */
+
+/* Fix modal buttons */
+.modal .btn,
+.modal-footer .btn,
+.modal-body .btn,
+#loginModal .btn,
+#registerModal .btn,
+#helpModal .btn,
+#feedbackModal .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-color: var(--gov-secondary) !important;
+    color: #ffffff !important;
+    border: 2px solid var(--gov-secondary) !important;
+    min-height: 38px !important;
+    min-width: 80px !important;
+    cursor: pointer !important;
+}
+
+/* Modal success buttons */
+.modal .btn-success {
+    background-color: var(--gov-accent) !important;
+    border-color: var(--gov-accent) !important;
+    color: #ffffff !important;
+}
+
+/* Form buttons */
+form .btn,
+.form-group .btn,
+button[type="submit"],
+input[type="submit"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+/* Radio button labels (user type selection) */
+.btn-check + .btn-outline-primary,
+.btn-check + .btn-outline-success,
+.btn-check + .btn-outline-info,
+.btn-check + .btn-outline-warning,
+.btn-check + .btn-outline-danger,
+.btn-check + .btn-outline-secondary,
+.btn-check + .btn-outline-dark {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    color: var(--gov-gray-700) !important;
+    border: 2px solid !important;
+    text-align: center !important;
+    min-height: 60px !important;
+    font-size: 0.875rem !important;
+}
+
+/* Checked state for radio button labels */
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--gov-secondary) !important;
+    border-color: var(--gov-secondary) !important;
+    color: #ffffff !important;
+}
+
+.btn-check:checked + .btn-outline-success {
+    background-color: var(--gov-accent) !important;
+    border-color: var(--gov-accent) !important;
+    color: #ffffff !important;
+}
+
+.btn-check:checked + .btn-outline-info {
+    background-color: #0891b2 !important;
+    border-color: #0891b2 !important;
+    color: #ffffff !important;
+}
+
+.btn-check:checked + .btn-outline-warning {
+    background-color: var(--gov-orange) !important;
+    border-color: var(--gov-orange) !important;
+    color: #000000 !important;
+}
+
+.btn-check:checked + .btn-outline-danger {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+    color: #ffffff !important;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+    background-color: #6b7280 !important;
+    border-color: #6b7280 !important;
+    color: #ffffff !important;
+}
+
+.btn-check:checked + .btn-outline-dark {
+    background-color: #1f2937 !important;
+    border-color: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+/* ===============================================
+   BOOTSTRAP OVERRIDES FOR BUTTON VISIBILITY
+   =============================================== */
+
+/* Ensure Bootstrap button classes work properly */
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: var(--gov-secondary) !important;
+    border-color: var(--gov-secondary) !important;
+    color: #ffffff !important;
+}
+
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.show > .btn-success.dropdown-toggle {
+    background-color: var(--gov-accent) !important;
+    border-color: var(--gov-accent) !important;
+    color: #ffffff !important;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active,
+.show > .btn-warning.dropdown-toggle {
+    background-color: var(--gov-orange) !important;
+    border-color: var(--gov-orange) !important;
+    color: #000000 !important;
+}
+
+/* Bootstrap modal button fixes */
+.modal-header .btn-close,
+.modal-header .btn-close-white {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='m.02 1.414 1.414-1.414L8 6.586 14.586 0l1.414 1.414L9.414 8 16 14.586l-1.414 1.414L8 9.414l-6.586 6.586L.02 14.586 6.606 8 .02 1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+    padding: 0.5rem !important;
+    margin: -0.25rem -0.25rem -0.25rem auto !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 0.375rem !important;
+    width: 1em !important;
+    height: 1em !important;
+    box-sizing: content-box !important;
+}
+
+.modal-header .btn-close:hover,
+.modal-header .btn-close-white:hover {
+    opacity: 0.75 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.modal-header .btn-close:focus,
+.modal-header .btn-close-white:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+    opacity: 1 !important;
+}
+
+/* Modal close buttons for different colored headers */
+.modal-header.bg-primary .btn-close,
+.modal-header.bg-success .btn-close,
+.modal-header.bg-info .btn-close,
+.modal-header.bg-danger .btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='m.02 1.414 1.414-1.414L8 6.586 14.586 0l1.414 1.414L9.414 8 16 14.586l-1.414 1.414L8 9.414l-6.586 6.586L.02 14.586 6.606 8 .02 1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+}
+
+/* Dark close button for light backgrounds */
+.modal-header.bg-light .btn-close,
+.modal-header.bg-warning .btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath d='m.02 1.414 1.414-1.414L8 6.586 14.586 0l1.414 1.414L9.414 8 16 14.586l-1.414 1.414L8 9.414l-6.586 6.586L.02 14.586 6.606 8 .02 1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+}
+
+/* Fallback close button using text content for older browsers */
+.btn-close::before {
+    content: "×" !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    color: currentColor !important;
+    display: block !important;
+    text-align: center !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-weight: bold !important;
+}
+
+/* Hide text content when SVG background is supported */
+@supports (background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3c/svg%3e")) {
+    .btn-close::before {
+        display: none !important;
+    }
+}
+
+/* Ensure close button is always visible with text fallback */
+.btn-close {
+    position: relative !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-family: Arial, sans-serif !important;
+}
+
+/* Alternative close button style for better visibility */
+.modal-header .btn-close:after {
+    content: "✕" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 1rem !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    display: block !important;
+    z-index: 1 !important;
+}
+
+/* Ensure close button works in all browsers and scenarios */
+.btn-close, 
+.btn-close-white,
+button[data-bs-dismiss="modal"] {
+    position: relative !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0.5rem !important;
+    cursor: pointer !important;
+    border: none !important;
+    border-radius: 0.375rem !important;
+    background: transparent !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    color: currentColor !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+}
+
+/* Force close button visibility with high specificity */
+.modal .modal-header .btn-close,
+.modal .modal-header .btn-close-white,
+#loginModal .modal-header .btn-close,
+#registerModal .modal-header .btn-close,
+#helpModal .modal-header .btn-close,
+#feedbackModal .modal-header .btn-close {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    float: right !important;
+    margin-left: auto !important;
+    z-index: 10 !important;
+}
+
+/* Cross-browser close button icon */
+.btn-close::before,
+.btn-close-white::before {
+    content: "×" !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: #ffffff !important;
+    display: block !important;
+}
+
+/* Bootstrap dropdown button fixes */
+.dropdown-toggle {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.dropdown-toggle::after {
+    display: inline-block !important;
+    margin-left: 0.255em !important;
+    vertical-align: 0.255em !important;
+    content: "" !important;
+    border-top: 0.3em solid !important;
+    border-right: 0.3em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.3em solid transparent !important;
+}
+
+/* Bootstrap form button fixes */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--gov-secondary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Bootstrap alert button fixes */
+.alert .btn-close {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 0.375rem !important;
+    margin: 0 !important;
+    background: none !important;
+    cursor: pointer !important;
+}
+
+/* Bootstrap navbar button fixes */
+.navbar-toggler {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 0.25rem 0.75rem !important;
+    font-size: 1.125rem !important;
+    line-height: 1 !important;
+    background-color: transparent !important;
+    border: 1px solid var(--gov-gray-300) !important;
+    border-radius: 0.375rem !important;
+    cursor: pointer !important;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+    display: inline-block !important;
+    width: 1.5em !important;
+    height: 1.5em !important;
+    vertical-align: middle !important;
+    background-image: var(--bs-navbar-toggler-icon-bg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% !important;
+}
+
+/* ===============================================
+   EMERGENCY BUTTON VISIBILITY FIXES
+   =============================================== */
+
+/* Force visibility on ALL button elements */
+button,
+.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: auto !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Remove any transforms that might hide buttons */
+.btn:not(:hover) {
+    transform: none !important;
+}
+
+/* Ensure buttons have minimum dimensions */
+.btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    line-height: 1.5 !important;
+}
+
+/* Fix any potential overflow issues */
+.card-footer,
+.modal-footer,
+.modal-body {
+    overflow: visible !important;
+}
+
+/* Ensure button text is visible */
+.btn,
+.btn * {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Fix button states */
+.btn:hover,
+.btn:focus,
+.btn:active {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Disabled button fix */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.65 !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Specific fixes for common problem areas */
+.hero-section .btn,
+.alert-banner .btn,
+.portal-card .btn,
+.modal .btn,
+.nav .btn,
+.navbar .btn,
+.header .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Compliance bar - simpler design */
+.compliance-bar {
+    background: var(--gov-gray-50) !important;
+    border-bottom: 1px solid var(--gov-gray-200) !important;
+    padding: 0.75rem 0;
+}
+
+.compliance-item {
+    background: transparent !important;
+    color: var(--gov-gray-600);
+    font-size: 0.875rem;
+}
+
+.compliance-item:hover {
+    color: var(--gov-secondary);
+    transform: none;
+}
+
+/* ===============================================
+   HEADER TEXT VISIBILITY FIXES
+   =============================================== */
+
+/* Ensure header text is always visible */
+.gov-header * {
+    color: var(--gov-white) !important;
+}
+
+.gov-header .text-white {
+    color: var(--gov-white) !important;
+}
+
+.gov-header .text-light {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.gov-header h4,
+.gov-header h6,
+.gov-header small,
+.gov-header .btn {
+    color: var(--gov-white) !important;
+}
+
+/* Navigation brand visibility */
+.navbar-brand,
+.navbar-brand span {
+    color: var(--gov-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Hero section text contrast */
+.hero-section .display-4 {
+    color: var(--gov-primary) !important;
+}
+
+.hero-section .lead {
+    color: var(--gov-gray-700) !important;
+}
+
+/* ===============================================
+   FINAL HEADER TEXT FIXES - MAXIMUM PRIORITY
+   =============================================== */
+
+/* Force white text on government header */
+header.gov-header,
+header.gov-header *,
+.gov-header,
+.gov-header *,
+.gov-header h4,
+.gov-header h6,
+.gov-header small,
+.gov-header .text-white,
+.gov-header .text-light {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+/* Ensure ALL buttons are visible and properly styled */
+.btn, 
+button, 
+input[type="button"], 
+input[type="submit"], 
+.btn-primary,
+.btn-success, 
+.btn-warning,
+.btn-danger,
+.btn-info,
+.btn-secondary,
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-danger,
+.btn-outline-info,
+.btn-outline-secondary,
+.btn-outline-light,
+.btn-outline-dark {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    min-height: 38px !important;
+    min-width: 80px !important;
+    cursor: pointer !important;
+}
+
+/* Header button specific fixes */
+.gov-header .btn-outline-light,
+.header-login-btn,
+.header-register-btn {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.gov-header .btn-warning,
+.header-register-btn {
+    background: var(--gov-orange) !important;
+    color: #000000 !important;
+    border: 2px solid var(--gov-orange) !important;
+}
+
+/* Fix button hover effects */
+.gov-header .btn-outline-light:hover,
+.header-login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.gov-header .btn-warning:hover,
+.header-register-btn:hover {
+    background-color: #c2410c !important;
+    color: #ffffff !important;
+    border-color: #c2410c !important;
+}
+
+/* ===================================
+   CROSS-BROWSER COMPATIBILITY FIXES
+   =================================== */
+
+/* Fix for Edge/IE CSS Grid and Flexbox issues */
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.flex-column {
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+.justify-content-center {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.align-items-center {
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.justify-content-between {
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+
+.justify-content-end {
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+
+/* Edge-specific button fixes */
+@supports (-ms-ime-align:auto) {
+    .btn {
+        border: 2px solid !important;
+    }
+    
+    .btn-outline-light {
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        background-color: transparent !important;
+    }
+    
+    .header-login-btn {
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+        background-color: transparent !important;
+    }
+    
+    /* Fix modal positioning in Edge */
+    .modal {
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+}
+
+/* Internet Explorer 11 specific fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .btn {
+        border: 2px solid;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .card {
+        display: block;
+    }
+    
+    .d-flex {
+        display: -ms-flexbox;
+    }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    .btn {
+        padding: 0.75rem 1.5rem !important;
+    }
+    
+    .form-control, .form-select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    
+    /* Fix button focus outline in Firefox */
+    .btn::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+/* Safari-specific fixes */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .form-control, .form-select {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        /* Fix button rendering in Safari */
+        .btn {
+            -webkit-appearance: button;
+            appearance: button;
+        }
+    }
+}

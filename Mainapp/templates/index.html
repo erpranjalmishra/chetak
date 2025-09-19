@@ -1,11 +1,1035 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Chetak - Community Health Portal | Government of India</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}
+    " rel="stylesheet">
 </head>
+
 <body>
-    <h1>this is web application</h1>
+    <!-- Government Top Bar - Simplified -->
+    <div class="gov-top-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center gap-3 small">
+                        <a href="https://www.india.gov.in" target="_blank" class="text-decoration-none">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/24px-Flag_of_India.svg.png"
+                                alt="India" class="me-1" width="20">
+                            India Portal
+                        </a>
+                        <span class="text-muted">|</span>
+                        <select id="languageSelect" class="form-select form-select-sm"
+                            onchange="changeLanguage(this.value)" style="width: auto;">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                        <span class="text-muted">|</span>
+                        <button class="btn btn-sm btn-link" onclick="toggleAccessibility()" title="Accessibility">
+                            <i class="fas fa-universal-access me-1"></i><span
+                                data-translate="Accessibility">Accessibility</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <div class="d-flex align-items-center justify-content-end gap-3 small">
+                        <span class="text-muted">Last Updated: 15 Sep 2025</span>
+                        <button class="btn btn-sm btn-link" onclick="openHelpModal()" title="Help">
+                            <i class="fas fa-question-circle me-1"></i><span data-translate="Help">Help</span>
+                        </button>
+                        <button class="btn btn-sm btn-link" onclick="openFeedbackModal()" title="Feedback">
+                            <i class="fas fa-envelope me-1"></i><span data-translate="Feedback">Feedback</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Government Header -->
+    <header class="gov-header" style="background: #1f2937 !important; color: #ffffff !important;">
+        <div class="container-fluid">
+            <div class="row align-items-center py-3">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                            alt="Government of India" class="gov-emblem me-4" width="60">
+                        <div style="color: #ffffff !important;">
+                            <h4 class="mb-1 fw-bold" data-translate="Government of India"
+                                style="color: #ffffff !important;">Government of India</h4>
+                            <h6 class="mb-1" style="color: rgba(255,255,255,0.85) !important;">Ministry of Health &
+                                Family Welfare</h6>
+                            <small style="color: rgba(255,255,255,0.75) !important;">स्वास्थ्य और परिवार कल्याण
+                                मंत्रालय</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="d-flex flex-column align-items-end gap-2">
+                        <div class="d-flex gap-2">
+                            <a href="/login/" class="btn btn-outline-light btn-sm"
+                                style="color: #ffffff !important; border-color: #ffffff !important;">
+                                <i class="fas fa-sign-in-alt"></i> <span data-translate="Login">Login</span>
+                            </a>
+                            <a href="/register/" class="btn btn-warning btn-sm"
+                                style="background: #f59e0b !important; color: #000000 !important; border: 2px solid #f59e0b !important; font-weight: bold !important;">
+                                <i class="fas fa-user-plus"></i> <span data-translate="Register">Register</span>
+                            </a>
+                        </div>
+                        <div class="small" style="color: rgba(255,255,255,0.75) !important;">
+                            <i class="fas fa-phone me-1"></i>Helpline: <strong>1075</strong>
+                            <span class="mx-2">|</span>
+                            <i class="fas fa-ambulance me-1"></i>Emergency: <strong>108</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fas fa-shield-heart"></i> <span data-translate="The Chetak">The Chetak</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" data-translate="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schemes" data-translate="Health Schemes">Health Schemes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#alerts" data-translate="Health Alerts">Health Alerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education" data-translate="Education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#community" data-translate="Community">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold text-primary mb-4">
+                            <span data-translate="The Chetak">The Chetak</span>
+                            <span class="text-success" data-translate="Unified Portal">Unified Portal</span>
+                        </h1>
+                        <p class="lead mb-4" data-translate="Comprehensive health ecosystem">
+                            Comprehensive health ecosystem connecting citizens, healthcare providers, ASHA workers,
+                            government officials, and researchers. One platform for health education, community support,
+                            and policy implementation.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="register.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus"></i> Join Community
+                            </a>
+                            <a href="#user-portals" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-users"></i> Explore Portals
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center">
+                        <div class="user-types-grid">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="user-type-card text-center p-3 border rounded shadow-sm bg-white">
+                                        <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                                        <h6 class="mb-1">General Public</h6>
+                                        <small class="text-muted">Health Education & Support</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="user-type-card text-center p-3 border rounded shadow-sm bg-white">
+                                        <i class="fas fa-user-nurse fa-2x text-success mb-2"></i>
+                                        <h6 class="mb-1">ASHA Workers</h6>
+                                        <small class="text-muted">Community Health Management</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="user-type-card text-center p-3 border rounded shadow-sm bg-white">
+                                        <i class="fas fa-user-md fa-2x text-info mb-2"></i>
+                                        <h6 class="mb-1">Healthcare Providers</h6>
+                                        <small class="text-muted">Patient Care & Monitoring</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="user-type-card text-center p-3 border rounded shadow-sm bg-white">
+                                        <i class="fas fa-building fa-2x text-warning mb-2"></i>
+                                        <h6 class="mb-1">Government Officials</h6>
+                                        <small class="text-muted">Policy & Administration</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Alert Banner -->
+    <section class="alert-banner bg-warning py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-1 text-center">
+                    <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                </div>
+                <div class="col-md-11">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Health Alert:</strong> Seasonal flu vaccination drive ongoing.
+                            <a href="#alerts" class="text-danger">Click here for more information</a>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-bell"></i> Subscribe to Alerts
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Compliance Bar -->
+    <section class="compliance-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap align-items-center gap-4 small">
+                        <div class="compliance-item">
+                            <i class="fas fa-certificate me-1"></i>
+                            <span>ISO 27001 Certified</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            <span>CERT-In Empanelled</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-universal-access me-1"></i>
+                            <span>GIGW Compliant</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-award me-1"></i>
+                            <span>Digital India Initiative</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <small class="text-muted">Secure • Accessible • Trusted</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Portals Section -->
+    <section id="user-portals" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">User Portals & Dashboards</h2>
+                <p class="lead">Specialized interfaces designed for different healthcare stakeholders</p>
+            </div>
+
+            <!-- Portal Cards -->
+            <div class="row g-4 mb-5">
+                <!-- General Public Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-primary">
+                        <div class="card-header bg-primary text-white text-center">
+                            <i class="fas fa-users fa-3x mb-2"></i>
+                            <h5 class="mb-0" data-translate="General Public Portal">General Public Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Health Education Resources</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Government Scheme Information</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Health Alerts & Notifications</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Community Health Forums</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Nearby Healthcare Facilities</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Emergency Contact Directory</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=general" class="btn btn-primary w-100">
+                                <i class="fas fa-sign-in-alt"></i> Access Portal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASHA Worker Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-success">
+                        <div class="card-header bg-success text-white text-center">
+                            <i class="fas fa-user-nurse fa-3x mb-2"></i>
+                            <h5 class="mb-0" data-translate="ASHA Worker Portal">ASHA Worker Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Village Health Monitoring</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Patient Registration & Tracking</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Immunization Schedule Management</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Maternal Health Tracking</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Report Generation Tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Training Resources & Updates</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=asha" class="btn btn-success w-100">
+                                <i class="fas fa-sign-in-alt"></i> ASHA Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Provider Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-info">
+                        <div class="card-header bg-info text-white text-center">
+                            <i class="fas fa-user-md fa-3x mb-2"></i>
+                            <h5 class="mb-0" data-translate="Healthcare Provider Portal">Healthcare Provider Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Patient Management System</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Electronic Health Records</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Prescription Management</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Telemedicine Platform</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Medical Guidelines & Protocols</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Continuing Education Resources</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=doctor" class="btn btn-info w-100">
+                                <i class="fas fa-sign-in-alt"></i> Provider Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government Official Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-warning">
+                        <div class="card-header bg-warning text-dark text-center">
+                            <i class="fas fa-building fa-3x mb-2"></i>
+                            <h5 class="mb-0">Government Official Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Health Analytics Dashboard</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Policy Implementation Tracking</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Resource Allocation Tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Scheme Beneficiary Management</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Performance Monitoring</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Inter-department Coordination</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=official" class="btn btn-warning w-100">
+                                <i class="fas fa-sign-in-alt"></i> Official Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-danger">
+                        <div class="card-header bg-danger text-white text-center">
+                            <i class="fas fa-user-shield fa-3x mb-2"></i>
+                            <h5 class="mb-0">Admin Management Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> System Administration</li>
+                                <li><i class="fas fa-check text-success me-2"></i> User Management & Permissions</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Data Security & Compliance</li>
+                                <li><i class="fas fa-check text-success me-2"></i> System Monitoring & Logs</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Backup & Recovery</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Configuration Management</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=admin" class="btn btn-danger w-100">
+                                <i class="fas fa-shield-alt"></i> Admin Access
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Researcher Portal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 portal-card border-secondary">
+                        <div class="card-header bg-secondary text-white text-center">
+                            <i class="fas fa-microscope fa-3x mb-2"></i>
+                            <h5 class="mb-0">Research Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i> Anonymized Health Data Access</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Research Study Management</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Statistical Analysis Tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Collaboration Platform</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Publication & Sharing Tools</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Ethics & Compliance Tracking</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="login.html?type=researcher" class="btn btn-secondary w-100">
+                                <i class="fas fa-sign-in-alt"></i> Researcher Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portal Statistics -->
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="stat-card p-3 bg-white rounded shadow-sm">
+                        <h3 class="text-primary mb-1">50,000+</h3>
+                        <p class="text-muted mb-0">Registered Citizens</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="stat-card p-3 bg-white rounded shadow-sm">
+                        <h3 class="text-success mb-1">2,500+</h3>
+                        <p class="text-muted mb-0">ASHA Workers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="stat-card p-3 bg-white rounded shadow-sm">
+                        <h3 class="text-info mb-1">1,200+</h3>
+                        <p class="text-muted mb-0">Healthcare Providers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="stat-card p-3 bg-white rounded shadow-sm">
+                        <h3 class="text-warning mb-1">150+</h3>
+                        <p class="text-muted mb-0">Government Officials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Health Schemes Section -->
+<section id="schemes" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Government Health Schemes</h2>
+      <p class="lead">
+        Access information about various health schemes by Government of India
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Ayushman Bharat -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card h-100 scheme-card">
+          <div class="card-body text-center">
+            <div class="scheme-icon mb-3">
+              <i class="fas fa-heart-pulse fa-3x text-danger"></i>
+            </div>
+            <h5 class="card-title">Ayushman Bharat</h5>
+            <p class="card-text">
+              Pradhan Mantri Jan Arogya Yojana providing health insurance coverage up to ₹5 lakhs per family.
+            </p>
+            <a href="https://www.india.gov.in/spotlight/ayushman-bharat-pradhan-mantri-jan-arogya-yojana"
+               class="btn btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Janani Suraksha Yojana -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card h-100 scheme-card">
+          <div class="card-body text-center">
+            <div class="scheme-icon mb-3">
+              <i class="fas fa-baby fa-3x text-info"></i>
+            </div>
+            <h5 class="card-title">Janani Suraksha Yojana</h5>
+            <p class="card-text">
+              Safe motherhood intervention promoting institutional delivery among pregnant women.
+            </p>
+            <a href="https://nhm.gov.in/index1.php?lang=1&level=3&sublinkid=841&lid=309"
+               class="btn btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission Indradhanush -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card h-100 scheme-card">
+          <div class="card-body text-center">
+            <div class="scheme-icon mb-3">
+              <i class="fas fa-syringe fa-3x text-success"></i>
+            </div>
+            <h5 class="card-title">Mission Indradhanush</h5>
+            <p class="card-text">
+              Immunization program targeting children and pregnant women for vaccine-preventable diseases.
+            </p>
+            <a href="https://www.mohfw.gov.in/?q=en/pressrelease-168"
+               class="btn btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Health Education & Alerts -->
+    <section id="education" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold text-primary mb-4">Health Education & Awareness</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-virus text-warning"></i> Disease Prevention
+                                    </h5>
+                                    <p class="card-text">Learn about preventing common diseases and maintaining good
+                                        health practices.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-apple-alt text-success"></i> Nutrition Guide
+                                    </h5>
+                                    <p class="card-text">Comprehensive nutrition guidelines for a healthy lifestyle and
+                                        balanced diet.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-dumbbell text-info"></i> Exercise & Fitness
+                                    </h5>
+                                    <p class="card-text">Simple exercises and fitness routines for all age groups and
+                                        health conditions.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="fas fa-brain text-danger"></i> Mental Health
+                                    </h5>
+                                    <p class="card-text">Mental health awareness, stress management, and emotional
+                                        well-being resources.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-bell"></i> Latest Health Alerts</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning alert-sm">
+                                <strong>Monsoon Health Alert:</strong> Take precautions against water-borne diseases.
+                            </div>
+                            <div class="alert alert-info alert-sm">
+                                <strong>Vaccination Drive:</strong> Free COVID-19 booster shots available at all PHCs.
+                            </div>
+                            <div class="alert alert-success alert-sm">
+                                <strong>Health Camp:</strong> Free health screening camp on 20th September.
+                            </div>
+                            <a href="#alerts" class="btn btn-primary btn-sm w-100">View All Alerts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Features -->
+    <section id="community" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">Community Features</h2>
+                <p class="lead">Connect, share, and learn from the health community</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-users fa-3x text-primary"></i>
+                        </div>
+                        <h5>Health Forums</h5>
+                        <p>Discuss health topics with community members and experts.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-user-md fa-3x text-success"></i>
+                        </div>
+                        <h5>Expert Consultation</h5>
+                        <p>Get advice from certified healthcare professionals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-calendar-check fa-3x text-info"></i>
+                        </div>
+                        <h5>Health Events</h5>
+                        <p>Stay updated about health camps and awareness programs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-mobile-alt fa-3x text-warning"></i>
+                        </div>
+                        <h5>Emergency Support</h5>
+                        <p>Quick access to emergency numbers and first aid guides.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <!-- Government Links Bar -->
+            <div class="row mb-4 py-3 border-bottom border-secondary">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+                        <a href="https://www.india.gov.in" target="_blank" class="text-light text-decoration-none">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/32px-Flag_of_India.svg.png"
+                                alt="India Flag" class="me-2" width="24">
+                            India.gov.in
+                        </a>
+                        <a href="https://digitalindia.gov.in" target="_blank" class="text-light text-decoration-none">
+                            <i class="fas fa-digital-tachograph me-1"></i>
+                            Digital India
+                        </a>
+                        <a href="https://mygov.in" target="_blank" class="text-light text-decoration-none">
+                            <i class="fas fa-users me-1"></i>
+                            MyGov.in
+                        </a>
+                        <a href="https://data.gov.in" target="_blank" class="text-light text-decoration-none">
+                            <i class="fas fa-database me-1"></i>
+                            Data.gov.in
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Portal Information -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+                            alt="Government of India" width="40" class="me-3 gov-emblem">
+                        <div>
+                            <h5 class="text-primary mb-1">The Chetak</h5>
+                            <small class="text-white">Ministry of Health & Family Welfare</small>
+                        </div>
+                    </div>
+                    <p class="small">An initiative of the Government of India for comprehensive health education,
+                        community support, and digital health services.</p>
+                    <div class="mb-3">
+                        <span class="badge bg-success me-1">Digital India</span>
+                        <span class="badge bg-warning text-dark">Make in India</span>
+                    </div>
+                </div>
+
+                <!-- Important Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Important Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i
+                                    class="fas fa-external-link-alt me-1"></i> Prime Minister's Office</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i
+                                    class="fas fa-external-link-alt me-1"></i> President of India</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i
+                                    class="fas fa-external-link-alt me-1"></i> Cabinet Secretariat</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i
+                                    class="fas fa-external-link-alt me-1"></i> Parliament of India</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none"><i
+                                    class="fas fa-external-link-alt me-1"></i> Supreme Court of India</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Ministry Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Health Ministry</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Ministry of Health</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">AIIMS</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">ICMR</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">National Health Mission</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">DGHS</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">FSSAI</a></li>
+                    </ul>
+                </div>
+
+                <!-- Policies & Acts -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Policies & Acts</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">National Health Policy</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Right to Information</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Public Grievances</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Accessibility Statement</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Contact & Support</h6>
+                    <div class="contact-info small">
+                        <div class="mb-2">
+                            <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                            <strong>Address:</strong><br>
+                            <span class="ms-4 text-white">Ministry of Health & Family Welfare<br>
+                                Nirman Bhawan, New Delhi - 110011</span>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-phone text-success me-2"></i>
+                            <strong>Helpline:</strong> <a href="tel:1075" class="text-light">1075</a> (Health)
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope text-info me-2"></i>
+                            <strong>Email:</strong> <a href="mailto:support@chetak.gov.in"
+                                class="text-light">support@chetak.gov.in</a>
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-ambulance text-danger me-2"></i>
+                            <strong>Emergency:</strong> <a href="tel:108" class="text-light">108</a> (Ambulance)
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="social-links">
+                            <h6 class="text-primary mb-2">Follow Us</h6>
+                            <a href="#" class="text-light me-3" title="Facebook"><i
+                                    class="fab fa-facebook fa-lg"></i></a>
+                            <a href="#" class="text-light me-3" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                            <a href="#" class="text-light me-3" title="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
+                            <a href="#" class="text-light me-3" title="Instagram"><i
+                                    class="fab fa-instagram fa-lg"></i></a>
+                            <a href="#" class="text-light" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="d-flex flex-wrap align-items-center gap-3 small">
+                        <span>&copy; 2025 The Chetak Portal, Government of India. All rights reserved.</span>
+                        <span class="text-muted">|</span>
+                        <span>Last Updated: <strong>September 15, 2025</strong></span>
+                        <span class="text-muted">|</span>
+                        <span>Version: <strong>2.0</strong></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-end">
+                    <div class="d-flex flex-wrap justify-content-end align-items-center gap-3 small">
+                        <a href="#" class="text-light text-decoration-none">Screen Reader</a>
+                        <span class="text-muted">|</span>
+                        <a href="#" class="text-light text-decoration-none">Site Map</a>
+                        <span class="text-muted">|</span>
+                        <a href="#" class="text-light text-decoration-none">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government Compliance -->
+            <div class="row mt-3 pt-3 border-top border-secondary">
+                <div class="col-12 text-center">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 small">
+                        <div class="compliance-item">
+                            <i class="fas fa-shield-alt text-success me-1"></i>
+                            <span>Secure SSL</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-universal-access text-info me-1"></i>
+                            <span>WCAG 2.1 AA Compliant</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-mobile-alt text-warning me-1"></i>
+                            <span>Mobile Friendly</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-language text-primary me-1"></i>
+                            <span>Multi-language Support</span>
+                        </div>
+                        <div class="compliance-item">
+                            <i class="fas fa-clock text-secondary me-1"></i>
+                            <span>24x7 Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="helpModalLabel">
+                        <i class="fas fa-question-circle"></i> Help & Support
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Frequently Asked Questions</h6>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            How to register on The Chetak portal?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Click on the "Register" button and select your user type. Fill in the
+                                            required information and verify your email address.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            How to access government health schemes?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Navigate to the "Health Schemes" section to find information about Ayushman
+                                            Bharat, JSY, and other government health programs.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            Technical support and troubleshooting
+                                        </button>
+                                    </h2>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            For technical issues, call our helpline 1075 or email support@chetak.gov.in.
+                                            Our team is available 24/7.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Contact Information</h6>
+                            <div class="contact-card p-3 bg-light rounded">
+                                <p><i class="fas fa-phone text-success me-2"></i><strong>Helpline:</strong> 1075 (Health
+                                    Services)</p>
+                                <p><i class="fas fa-ambulance text-danger me-2"></i><strong>Emergency:</strong> 108
+                                    (Ambulance)</p>
+                                <p><i class="fas fa-envelope text-info me-2"></i><strong>Email:</strong>
+                                    support@chetak.gov.in</p>
+                                <p><i class="fas fa-clock text-warning me-2"></i><strong>Hours:</strong> 24/7 Available
+                                </p>
+                            </div>
+                            <h6 class="text-primary mt-4">User Guides</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-decoration-none"><i
+                                            class="fas fa-file-pdf me-2"></i>Registration Guide (PDF)</a></li>
+                                <li><a href="#" class="text-decoration-none"><i class="fas fa-video me-2"></i>Video
+                                        Tutorials</a></li>
+                                <li><a href="#" class="text-decoration-none"><i class="fas fa-book me-2"></i>User
+                                        Manual</a></li>
+                                <li><a href="#" class="text-decoration-none"><i class="fas fa-question me-2"></i>FAQ
+                                        Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="feedbackModalLabel">
+                        <i class="fas fa-envelope"></i> Send Feedback
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="feedbackForm">
+                        <div class="mb-3">
+                            <label for="feedbackType" class="form-label">Feedback Type</label>
+                            <select class="form-select" id="feedbackType" required>
+                                <option value="">Select feedback type</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="compliment">Compliment</option>
+                                <option value="technical">Technical Issue</option>
+                                <option value="content">Content Related</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="feedbackSubject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="feedbackSubject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="feedbackMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="feedbackMessage" rows="4" required
+                                placeholder="Please provide your feedback..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="feedbackEmail" class="form-label">Email (optional)</label>
+                            <input type="email" class="form-control" id="feedbackEmail"
+                                placeholder="your.email@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="feedbackRating" class="form-label">Rate your experience</label>
+                            <div class="rating-stars" id="feedbackRating">
+                                <i class="fas fa-star" data-rating="1"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-paper-plane"></i> Submit Feedback
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Panel -->
+    <div class="accessibility-panel" id="accessibilityPanel">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h6 class="mb-0"><i class="fas fa-universal-access me-2"></i>Accessibility Options</h6>
+                <button class="btn btn-sm btn-outline-light float-end" onclick="toggleAccessibility()">×</button>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Font Size</label>
+                    <div class="btn-group w-100" role="group">
+                        <button class="btn btn-outline-secondary btn-sm"
+                            onclick="changeFontSize('small')">Small</button>
+                        <button class="btn btn-outline-secondary btn-sm active"
+                            onclick="changeFontSize('normal')">Normal</button>
+                        <button class="btn btn-outline-secondary btn-sm"
+                            onclick="changeFontSize('large')">Large</button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="highContrastMode"
+                            onchange="toggleHighContrast()">
+                        <label class="form-check-label" for="highContrastMode">High Contrast</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="screenReaderMode"
+                            onchange="toggleScreenReader()">
+                        <label class="form-check-label" for="screenReaderMode">Screen Reader Support</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="keyboardNavigation"
+                            onchange="toggleKeyboardNav()">
+                        <label class="form-check-label" for="keyboardNavigation">Keyboard Navigation</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-sm w-100" onclick="resetAccessibility()">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+
+</html>s
