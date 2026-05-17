@@ -7,7 +7,7 @@ from .settings import *
 # Production settings
 DEBUG = False
 
-# Azure Front Door configuration
+# Azue Front Door configuration
 ALLOWED_HOSTS = [
     'teamv-hudvbrdpb0geeacx.z01.azurefd.net',
     '.azurefd.net',
